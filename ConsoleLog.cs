@@ -12,6 +12,7 @@ namespace ConsoleLog
     {
         private string _headerDivider;
         private readonly RichTextBox _textBox;
+
         public ConsoleLog()
         {
             InitializeComponent();
@@ -170,26 +171,46 @@ namespace ConsoleLog
             }
         }
 
+        /// <summary>
+        /// Refreshes the log
+        /// </summary>
         public override void Refresh()
         {
             _textBox.Refresh();
         }
 
+        /// <summary>
+        /// Saves the contents of the log to a text file
+        /// </summary>
+        /// <param name="path">The path where the file should be saved</param>
         public void SaveFile(string path)
         {
             _textBox.SaveFile(path);
         }
 
+        /// <summary>
+        /// Saves the contents of the log to a text file
+        /// </summary>
+        /// <param name="path">The path where the file should be saved</param>
+        /// <param name="fileType">The stream type</param>
         public void SaveFile(string path, RichTextBoxStreamType fileType)
         {
             _textBox.SaveFile(path, fileType);
         }
 
+        /// <summary>
+        /// Saves the contents of the log to a text file
+        /// </summary>
+        /// <param name="data">The stream of the data to save</param>
+        /// <param name="fileType">The stream type</param>
         public void SaveFile(Stream data, RichTextBoxStreamType fileType)
         {
             _textBox.SaveFile(data, fileType);
         }
 
+        /// <summary>
+        /// Clears the contents of the log
+        /// </summary>
         public void ClearContents()
         {
             textBox.Clear();
@@ -202,64 +223,211 @@ namespace ConsoleLog
             Log(HeaderDivider, false, true);
         }
 
-        public void LogInfo(string message)
+        /// <summary>
+        /// Helper method to log an info message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogInfo(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogInfo(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log an info message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogInfo(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, InfoForeColor, InfoBackColor);
         }
 
-        public void LogWarning(string message)
+        /// <summary>
+        /// Helper method to log a warning message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogWarning(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogWarning(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log a warning message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogWarning(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, WarningForeColor, WarningBackColor);
         }
 
-        public void LogError(string message)
+        /// <summary>
+        /// Helper method to log an error message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogError(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
-            Log("");
-            Log(message, ErrorForeColor, ErrorBackColor);
-            Log("");
+            LogError(message.ToString(), null);
         }
 
-        public void LogError(object error)
+        /// <summary>
+        /// Helper method to log an error message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogError(string message, params object[] args)
         {
-            var textMessage = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), error);
-            Log("");
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            var textMessage = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(textMessage, ErrorForeColor, ErrorBackColor);
-            Log("");
         }
 
-        public void LogSuccess(string message)
+        /// <summary>
+        /// Helper method to log a success message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogSuccess(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogSuccess(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log a success message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogSuccess(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, SuccessForeColor, SuccessBackColor);
         }
 
-        public void LogStandout(string message)
+        /// <summary>
+        /// Helper method to log a standout message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogStandout(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogStandout(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log a standout message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogStandout(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, StandoutForeColor, StandoutBackColor);
         }
 
-        public void LogSubtle(string message)
+        /// <summary>
+        /// Helper method to log an subtle message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogSubtle(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogSubtle(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log an subtle message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogSubtle(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message.ToString(), args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+
+            // Log the message
             Log(message, SubtleForeColor, SubtleBackColor);
         }
 
-        public void LogEvent(string message)
+        /// <summary>
+        /// Helper method to log an event message
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogEvent(object message)
         {
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+            LogEvent(message.ToString(), null);
+        }
+
+        /// <summary>
+        /// Helper method to log an event message by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogEvent(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+
             Log(message, EventForeColor, EventBackColor);
         }
 
-        public void LogEventWarning(object textMessage)
+        /// <summary>
+        /// Helper method to log an event warning
+        /// </summary>
+        /// <param name="message">The message or value to log</param>
+        public void LogEventWarning(object message)
         {
-            textMessage = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), textMessage);
-            Log(textMessage, EventWarningForeColor, EventWarningBackColor);
+            LogEventWarning(message.ToString(), null);
         }
 
+        /// <summary>
+        /// Helper method to log an event warning by replacing the format item in a specified string with the string representation of a corresponding object in a specified array.
+        /// </summary>
+        /// <param name="message">A composite format string.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
+        public void LogEventWarning(string message, params object[] args)
+        {
+            // Build the message with or without args
+            var formattedMessage = args == null ? message : string.Format(message, args);
+
+            // Append the date to the message
+            // TODO: Perhaps have a property that can turn off the datetime stamp
+            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+
+            // Log the message
+            Log(message, EventWarningForeColor, EventWarningBackColor);
+        }
+
+        /// <summary>
+        /// Main function for logging a message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="spaceBefore"></param>
+        /// <param name="spaceAfter"></param>
         public void Log(string message, bool spaceBefore = false, bool spaceAfter = false)
         {
             if (spaceBefore) Log("", StandardForeColor, StandardBackColor);
