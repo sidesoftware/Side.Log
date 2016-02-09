@@ -1,0 +1,14 @@
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.dll
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.pdb
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.ConsoleLog.resources
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.csproj.GenerateResource.Cache
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.dll
+C:\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.pdb
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.dll
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.pdb
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.dll.CodeAnalysisLog.xml
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\bin\Debug\ConsoleLog.dll.lastcodeanalysissucceeded
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.ConsoleLog.resources
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.csproj.GenerateResource.Cache
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.dll
+L:\Projects\Apex\Code\GeneralMills - FeatureBar_Soln\FeatureBarAdminTool_Soln\ConsoleLog\obj\Debug\ConsoleLog.pdb
