@@ -7,8 +7,8 @@
     <ProjectGuid>{285CE481-AC9D-4048-BBB4-B0347FA7A94B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleLog</RootNamespace>
-    <AssemblyName>ConsoleLog</AssemblyName>
+    <RootNamespace>SideSoftware.Log</RootNamespace>
+    <AssemblyName>SideLog</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

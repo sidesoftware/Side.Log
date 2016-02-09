@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace ConsoleLog
+namespace SideSoftware.Log
 {
     public class StatusBase
     {

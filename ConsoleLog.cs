@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace ConsoleLog
+namespace SideSoftware.Log
 {
     public partial class ConsoleLog: UserControl
     {

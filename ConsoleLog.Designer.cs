@@ -1,4 +1,4 @@
-﻿namespace ConsoleLog
+﻿namespace SideSoftware.Log
 {
     partial class ConsoleLog
     {
@@ -23,16 +23,16 @@
         #region Component Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify 
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
+            //
             // textBox
-            // 
+            //
             this.textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -43,9 +43,9 @@
             this.textBox.Size = new System.Drawing.Size(1054, 583);
             this.textBox.TabIndex = 30;
             this.textBox.Text = "";
-            // 
+            //
             // UserControl1
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox);

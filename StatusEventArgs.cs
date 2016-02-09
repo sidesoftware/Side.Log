@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleLog
+namespace SideSoftware.Log
 {
     public class StatusEventArgs : EventArgs
     {
