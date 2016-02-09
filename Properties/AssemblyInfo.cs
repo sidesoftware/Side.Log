@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SideLog")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple user control that can be used to add colorful logging capabilities to windows forms applications.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompanyAttribute("Side Software")]
 [assembly: AssemblyProduct("SideLog")]
