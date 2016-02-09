@@ -1,6 +1,0 @@
-C:\Code\Internal\Side.Log\bin\Debug\ConsoleLog.dll
-C:\Code\Internal\Side.Log\bin\Debug\ConsoleLog.pdb
-C:\Code\Internal\Side.Log\obj\Debug\ConsoleLog.ConsoleLog.resources
-C:\Code\Internal\Side.Log\obj\Debug\SideLog.csproj.GenerateResource.Cache
-C:\Code\Internal\Side.Log\obj\Debug\ConsoleLog.dll
-C:\Code\Internal\Side.Log\obj\Debug\ConsoleLog.pdb
