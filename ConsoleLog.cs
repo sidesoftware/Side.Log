@@ -240,10 +240,9 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogInfo(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
+            // Build the new message
+            message = BuildMessage(message, args);
 
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, InfoForeColor, InfoBackColor);
         }
 
@@ -264,10 +263,8 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogWarning(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
-
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+            // Build the new message
+            message = BuildMessage(message, args);
             Log(message, WarningForeColor, WarningBackColor);
         }
 
@@ -288,11 +285,10 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogError(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
+            // Build the new message
+            message = BuildMessage(message, args);
 
-            var textMessage = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
-            Log(textMessage, ErrorForeColor, ErrorBackColor);
+            Log(message, ErrorForeColor, ErrorBackColor);
         }
 
         /// <summary>
@@ -312,10 +308,9 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogSuccess(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
+            // Build the new message
+            message = BuildMessage(message, args);
 
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, SuccessForeColor, SuccessBackColor);
         }
 
@@ -336,10 +331,9 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogStandout(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
+            // Build the new message
+            message = BuildMessage(message, args);
 
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
             Log(message, StandoutForeColor, StandoutBackColor);
         }
 
@@ -360,10 +354,8 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogSubtle(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message.ToString(), args);
-
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+            // Build the new message
+            message = BuildMessage(message, args);
 
             // Log the message
             Log(message, SubtleForeColor, SubtleBackColor);
@@ -386,10 +378,8 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogEvent(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
-
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+            // Build the new message
+            message = BuildMessage(message, args);
 
             Log(message, EventForeColor, EventBackColor);
         }
@@ -411,12 +401,8 @@ namespace SideSoftware.Log
         /// <exception cref="T:System.ArgumentNullException"><paramref name="message"/> or <paramref name="args"/> is null. </exception><exception cref="T:System.FormatException"><paramref name="message"/> is invalid.-or- The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array. </exception><filterpriority>1</filterpriority>
         public void LogEventWarning(string message, params object[] args)
         {
-            // Build the message with or without args
-            var formattedMessage = args == null ? message : string.Format(message, args);
-
-            // Append the date to the message
-            // TODO: Perhaps have a property that can turn off the datetime stamp
-            message = string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), formattedMessage);
+            // Build the new message
+            message = BuildMessage(message, args);
 
             // Log the message
             Log(message, EventWarningForeColor, EventWarningBackColor);
@@ -467,5 +453,33 @@ namespace SideSoftware.Log
         }
 
         #endregion
+
+        /// <summary>
+        /// Helper function to build message with params argument
+        /// </summary>
+        private static string BuildMessage(string message, params object[] args)
+        {
+            string formattedMessage;
+
+            try
+            {
+                // Build the message with or without args
+                formattedMessage = args == null ? message : string.Format(message, args);
+            }
+            catch
+            {
+                return BuildMessageWithDate(message);
+            }
+
+            return BuildMessageWithDate(formattedMessage);
+        }
+
+        /// <summary>
+        /// Helper function to build message with date prefix
+        /// </summary>
+        private static string BuildMessageWithDate(string message)
+        {
+            return string.Format("{0} - {1}", DateTime.Now.ToLongTimeString(), message);
+        }
     }
 }
